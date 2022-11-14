@@ -1,15 +1,30 @@
 const app = document.getElementById('root');
 
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
-
-app.appendChild(container);
-
 // Create a request variable and assign a new XMLHttpsRequest object to it
 var request = new XMLHttpRequest();
 
-// Variable to store the number of pokemon that will be listed
+// Default number of Pokemon will be the first 151 Pokemon
 var numPokemon = 151;
+
+/**
+ * [setNumPokemon will take the input numPokemon from a textbox and then call the requestPokemon() function to create numPokemon entries ]
+ */
+function setNumPokemon(){
+    // If the value the user inputs is not a number, then we will alert them
+    numPokemon = document.getElementById("numPokemon").value;
+    if (isNaN(numPokemon) || numPokemon == 0){
+        alert("Invalid Input, Please Enter a Number Greater Than 0");
+    }
+    else{
+        requestPokemon(numPokemon);
+    }
+}
+
+/**
+ * [requestPokemon will take in a number and make a request. The function will then create an entry for every pokemon up to the given number]
+ * @param {int} numPokemon [The number of Pokemon that will be listed]
+ */
+function requestPokemon(numPokemon){
 
 // Open a new connection, using the GET request on the URL endpoint
 var url = 'https://pokeapi.co/api/v2/pokemon?limit=' + numPokemon + '&offset=0';
@@ -20,6 +35,13 @@ request.onload = function () {
     var data = JSON.parse(this.response);
 
     var pokedex = data['results']
+
+    // Since users can change the amount of Pokemon listed, clear it before adding the number of Pokemon they want
+    document.getElementById('root').innerHTML = "";
+
+    container = document.createElement('div');
+    container.setAttribute('class', 'container');
+    app.appendChild(container);
 
     //For each element in data['results']
     if(request.status >= 200 && request.status < 400) {
@@ -53,6 +75,15 @@ request.onload = function () {
 
 }
 
+// Send request
+request.send()
+}
+
+/**
+ * [Takes in a name of a Pokemon and returns it's sprite]
+ * @param {String} name [The name of the Pokemon]
+ * @returns the Pokemon's sprite
+ */
 async function getPokemonImage(name) {
     let url = "https://pokeapi.co/api/v2/pokemon/" + name;
     let response = await fetch(url);
@@ -60,5 +91,4 @@ async function getPokemonImage(name) {
     return pokemonPage["sprites"]["front_default"];
 }
 
-// Send request
-request.send()
+requestPokemon(numPokemon)

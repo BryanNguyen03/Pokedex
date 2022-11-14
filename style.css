@@ -10,7 +10,7 @@
   h1 {
     text-align: center;
     padding: 1.5rem 2.5rem;
-    background-image: linear-gradient(to right, red, orange);
+    background-color: #5CDB95;
     margin: 0 0 2rem 0;
     font-size: 1.5rem;
     color: white;
@@ -18,25 +18,46 @@
 
   .banner{
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
     padding: 1.5rem 2.5rem;
-    background-image: linear-gradient(to right, red, orange);
+    background-color: #5CDB95;
     margin: 0 0 2rem 0;
     font-size: 1.5rem;
     color: white;
   }
 
   .banner a {
-    background-color: white;
-    color: red;
+    background-color: #EDF5E1;
     border-radius: 10px;
     text-decoration: none;
     padding: 5px 10px;
+    color: black;
   }
 
   .banner a:hover {
-    background-color: red;
+    left: 0;
+    background-color: #8EE4AF;
     -webkit-transition: all 100ms ease-in;
-    color: white;
+  }
+
+  .pokemonSetter {
+    position: fixed;
+    left: 5px;
+  }
+  
+  .pokemonSetter #btn{
+    left: 0;
+    border-radius: 10px;
+    background-color: #EDF5E1;
+    color: black;
+    /*width: 4vw;
+    height: 1vw;*/
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+  }
+
+  .pokemonSetter #numPokemon{
+    font-family: 'Courier New', Courier, monospace;
   }
 
   img {
@@ -56,6 +77,7 @@
   }
   
   .entry {
+    font-family: 'Courier New', Courier, monospace;
     margin: 1rem;
     background: white;
     box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
@@ -68,7 +90,7 @@
     box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
     transform: translate3D(0, -2px, 0);
   }
-
+  
   @media screen and (min-width: 600px) {
     .entry {
       flex: 1 1 calc(50% - 2rem);
