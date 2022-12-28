@@ -1,18 +1,13 @@
-
----
-
 ## <h1 align="center">Pokedex</h1>
 
-Using an API called PokeAPI and JavaScript's XMLHttpRequest, the website generates entries for every pokemon listing their name and sprites. Users can change the number of pokemon entries by inputing the number of Pokemon they want into the textbox:
-
-!['Image of Textbox'](images/textbox.png)
-
-Note: By Default the number of pokemon listed will be the original 151 pokemon.
-
-PokeAPI: https://pokeapi.co/
-
-
 ---
 
-!['Website Preview'](images/WebsitePreview.png)
+Using an API called pokeAPI and ReactJS, this website displays every pokemon ranging from the first pokemon to the 900th pokemon.
 
+Users can specify the number of pokemon displayed by entering the value in the textbox
+
+!['website Preview'](readme-images/WebsitePreview.png)
+
+If the user enters a value between 1 - 900, that amount of Pokemon will be displayed. Note that entering a negative number will return a message stating it must be a value greater than 0
+
+!['website Preview 2'](readme-images/900%20Pokemon.png)
