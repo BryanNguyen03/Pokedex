@@ -49,7 +49,7 @@ const App = () => {
         <img src={searchIcon} onClick={() => getPokemon(numPokemon)} />
       </div>
 
-      {pokemonList?.length > 0 ? (
+      {pokemonList?.length > 0 && numPokemon <= 900 ? (
         <div className="container">
           {pokemonList.map((pokemon) => (
             <PokemonCard pokemon={pokemon} />
