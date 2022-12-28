@@ -2,6 +2,8 @@
 
 ---
 
+Website Link: https://bryannguyen03.github.io/Pokedex/
+
 Using an API called pokeAPI and ReactJS, this website displays every pokemon ranging from the first pokemon to the 900th pokemon.
 
 Users can specify the number of pokemon displayed by entering the value in the textbox
