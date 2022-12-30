@@ -41,8 +41,6 @@ const App = () => {
       <div className="specifyNumPokemon">
         <input
           placeholder="Enter a number between 1 - 900"
-          //Get the value of numPokemon
-          value={numPokemon}
           //set new value for num pokemon
           onChange={(e) => setNumPokemon(e.target.value)}
         />
