@@ -9,18 +9,21 @@ const App = () => {
   //List of pokemon
   const [pokemonList, setPokemonList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [outputMessage, setMessage] = useState("");
 
   //Set the list of pokemon
   const getPokemon = async (numPokemon) => {
     setLoading(true);
     let pokemonArray = [];
-    for (let i = 1; i <= numPokemon; i++) {
-      pokemonArray.push(await getPokemonData(i));
+    if (numPokemon >= 1 && numPokemon <= 900) {
+      for (let i = 1; i <= numPokemon; i++) {
+        pokemonArray.push(await getPokemonData(i));
+      }
+      setLoading(false);
     }
 
     console.log(pokemonArray);
     setPokemonList(pokemonArray);
-    setLoading(false);
   };
 
   //Fetch the data for a specific pokemon
@@ -28,6 +31,18 @@ const App = () => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await response.json();
     return data;
+  };
+
+  //Update the output message for user
+  const updateMessage = () => {
+    // If the user input is invalid (the number of pokemon is not 1 - 900)
+    if (!(numPokemon >= 1 && numPokemon <= 900)) {
+      // Set the message to:
+      setMessage("Enter a value between 1 - 900");
+    } else {
+      //Otherwise, we'll set the output message to "Loading ..." to indicate we are loading the Pokemon
+      setMessage("Loading ...");
+    }
   };
 
   // Website will default to the original 151 Pokemon
@@ -45,11 +60,17 @@ const App = () => {
           //set new value for num pokemon
           onChange={(e) => setNumPokemon(e.target.value)}
         />
-        <img src={searchIcon} onClick={() => getPokemon(numPokemon)} />
+        <img
+          src={searchIcon}
+          onClick={() => {
+            getPokemon(numPokemon);
+            updateMessage();
+          }}
+        />
       </div>
 
       {loading ? (
-        <h2> Loading ... </h2>
+        <h2> {outputMessage} </h2>
       ) : (
         <div className="container">
           {pokemonList.map((pokemon) => (
