@@ -12,6 +12,7 @@ const App = () => {
 
   //Set the list of pokemon
   const getPokemon = async (numPokemon) => {
+    setLoading(true);
     let pokemonArray = [];
     for (let i = 1; i <= numPokemon; i++) {
       pokemonArray.push(await getPokemonData(i));
@@ -47,14 +48,14 @@ const App = () => {
         <img src={searchIcon} onClick={() => getPokemon(numPokemon)} />
       </div>
 
-      {numPokemon > 0 && numPokemon <= 900 ? (
+      {loading ? (
+        <h2> Loading ... </h2>
+      ) : (
         <div className="container">
           {pokemonList.map((pokemon) => (
             <PokemonCard pokemon={pokemon} />
           ))}
         </div>
-      ) : (
-        <h2> Enter a value between 1 - 900 </h2>
       )}
     </div>
   );

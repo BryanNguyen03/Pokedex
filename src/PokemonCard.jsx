@@ -1,7 +1,6 @@
 import React from "react";
 
 const PokemonCard = ({ pokemon }) => {
-  console.log(pokemon.id);
   return (
     <div className="pokemoncontainer">
       <div className="pokemonImage">
