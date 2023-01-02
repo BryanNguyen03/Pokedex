@@ -41,7 +41,7 @@ const App = () => {
       setMessage("Enter a value between 1 - 900");
     } else {
       //Otherwise, we'll set the output message to "Loading ..." to indicate we are loading the Pokemon
-      setMessage("Loading ...");
+      setMessage("Loading Pokemon, please be patient ... ");
     }
   };
 
