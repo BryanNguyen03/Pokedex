@@ -45,7 +45,7 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
-.specifyNumPokemon {
+.specifyPokemon {
   width: 71%;
   margin: 4rem 0 2rem;
 
@@ -59,7 +59,7 @@ h1 {
   box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
 }
 
-.specifyNumPokemon input {
+.specifyPokemon input {
   flex: 1;
   border: none;
   font-size: 1.5rem;
@@ -188,18 +188,30 @@ h1 {
     padding: 4rem 2rem;
   }
 
-  .specifyNumPokemon {
+  .specifyPokemon {
     padding: 1rem 1.75rem;
     width: 100%;
   }
 
-  .specifyNumPokemon input {
+  .specifyPokemon input {
     font-size: 1rem;
   }
 
-  .specifyNumPokemon img {
+  .specifyPokemon img {
     width: 20px;
     height: 20px;
+  }
+
+  .filterCheckboxes {
+    display: block;
+    height: 170px;
+    width: 150px;
+    padding: 1rem;
+  }
+
+  .filterCheckboxes .checkbox {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 }
 

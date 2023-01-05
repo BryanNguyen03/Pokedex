@@ -147,7 +147,7 @@ const App = () => {
         Github
       </a>
 
-      <div className="specifyNumPokemon">
+      <div className="specifyPokemon">
         <input
           placeholder="Search Pokemon"
           //set new value for num pokemon
